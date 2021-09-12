@@ -4,6 +4,9 @@ ubuntu-config one by one
 add user
 
 install clash-linux-amd64.gz and config--up config.yaml to ~/.config/clash/
+
+sudo systemctl enable --now clash
+
 config.yaml:
 
 """
@@ -41,12 +44,15 @@ socks5 127.0.0.1 7891
 
 (port same to clash  conffig.yaml socks-port:7891)
 
+sudo systemctl enable --now privoxy
+
 test by proxychains4 curl ip.gs -- vps ip
 
 or
 
 install speedtest-cli to test(compare speedtest-cli and proxychains4 speedtest-cli)
 
+# vim、neovim 的配置
 vim/neovim config  coc-nvim(github) use by vim-plug
 
 # root用户配置user-rome同样的vim配置：
@@ -54,7 +60,9 @@ cp -r ~/.vim /root
 cp -r ~/.vimrc /root
 
 
-install conda by root and source --can ude by user : rome
+install conda by root and source --can use by user : rome
+
+（see conda doc in web）
 
 aliyun mount data disk (20g) to /mnt/disk1
 
