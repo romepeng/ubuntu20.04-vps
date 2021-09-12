@@ -5,12 +5,18 @@ add user
 
 install clash-linux-amd64.gz and config--up config.yaml to ~/.config/clash/
 config.yaml:
+
 """
 port: 7890
+
 socks-port: 7891
+
 allow-lan: true
+
 mode: Rule
+
 log-level: info
+
 external-controller: :9090
 
 ......
