@@ -1,14 +1,23 @@
 # ubuntu20.04-vps
-ubuntu-config-one by one
+ubuntu-config one by one
 
 add user
 
 install clash-linux-amd64.gz and config--up config.yaml to ~/.config/clash/
+config.yaml:
+"""
+port: 7890
+socks-port: 7891
+allow-lan: true
+mode: Rule
+log-level: info
+external-controller: :9090
 
+......
+"""
 
-
-#shadowsocks，v2ray 都是将代理转为本地 socks5 代理，
-#所以如果需要使用 http 代理，就需要借助 Privoxy
+#shadowsocks，v2ray 都是将代理转为本地 socks5 代理 (port:7891)，
+#所以如果需要使用 http 代理(port:8118)，就需要借助 Privoxy
 
 sudo apt install privoxy
 
@@ -46,12 +55,5 @@ aliyun mount data disk (20g) to /mnt/disk1
 install postgresql 12 and change sql data path to /mnt/disk1/ppgsql_data
 
 install pgadmin4 in unbuntu and login by web http://IP/pgadmin4 romepeng@outlook.com/t9
-
-
-
-
-
-
-
 
 
