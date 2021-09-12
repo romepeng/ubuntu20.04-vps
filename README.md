@@ -5,15 +5,38 @@ add user
 
 install clash-linux-amd64.gz and config--up config.yaml to ~/.config/clash/
 
-install proxychains4 and change config in /etc/config/proxychain.conf (port samt to config.yaml of clash)
 
-test by proxychains4 curl ip.gs 
+
+#shadowsocks，v2ray 都是将代理转为本地 socks5 代理，
+#所以如果需要使用 http 代理，就需要借助 Privoxy
+
+sudo apt install privoxy
+
+vi /etc/privoxy/config
+
+# 把本地 HTTP 流量转发到本地 7891 SOCKS5 代理
+forward-socks5t / 127.0.0.1: 7891 .
+
+# 可选，默认监听本地连接
+listen-address 127.0.0.1:8118
+
+install proxychains4 and change config in /etc/config/proxychain.conf
+
+socks5 127.0.0.1 7891
+
+(port same to clash  conffig.yaml socks-port:7891)
+
+test by proxychains4 curl ip.gs -- vps ip
 
 or
 
-install testspeedcli to test(compare speedcli and proxychains4 testcli)
+install speedtest-cli to test(compare speedtest-cli and proxychains4 speedtest-cli)
 
 vim/neovim config  coc-nvim(github) use by vim-plug
+
+# root用户配置user-rome同样的vim配置：
+cp -r ~/.vim /root
+cp -r ~/.vimrc /root
 
 
 install conda by root and source --can ude by user : rome
